@@ -1,5 +1,6 @@
 #include <iostream>
 
+Adding a line to understand merge
 using namespace std;
 struct Node {
     int data;
