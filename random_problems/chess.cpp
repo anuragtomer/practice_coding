@@ -4,6 +4,39 @@
 
 using namespace std;
 
+
+// Name of the piece.
+typedef struct {
+    int pie;
+} piece_t;
+
+// Cordinates in chess board.
+typedef struct{
+    int x;
+    int y;
+} cordinates_t;
+
+// Position of the piece to be moved. 
+typedef struct {
+    cordinates_t from;
+    cordinates_t to;
+} position_t;
+
+typedef struct {
+    string name;
+    string color;
+    vector <int> pieces_left;
+} player;
+
+typedef struct {
+    int color;
+    int piece;
+} location_t;
+
+class Chess {
+    public:
+        vector<vector <int>> chess_board(9, vector<int>(9));
+        player player1, player2;
 enum {
     PAWNS = 6,
     BISHOP = 1,
@@ -13,44 +46,10 @@ enum {
     KING = 5,
     INVALID = 0
 } PIECES;
-
-// Name of the piece.
-struct p {
-    int pie;
-} piece_t;
-
-// Cordinates in chess board.
-struct cordi {
-    int x;
-    int y;
-} cordinates_t;
-
-// Position of the piece to be moved. 
-struct posit {
-    cordinates_t from;
-    cordinates_t to;
-} position_t;
-
-struct player {
-    string name;
-    string color;
-    vector <int> pieces_left(16);
-} player;
-
-struct loca {
-    int color;
-    int piece;
-} location_t;
-
-class Chess {
-    private:
-        vector<vector <location_t>> chess_board(9, vector<location_t>(9));
-        player player1, player2;
-    public:
-        board_init(string name1, string color1, string name2, string color2) {
+        Chess(string name1, string color1, string name2, string color2) {
             player1.name = name1;
             player1.color = color1;
-            player1.pieces_left.push_back(PAWN);
+            player1.pieces_left.push_back(PIECES.PAWN);
             player1.pieces_left.push_back(PAWN);
             player1.pieces_left.push_back(PAWN);
             player1.pieces_left.push_back(PAWN);
@@ -86,7 +85,6 @@ class Chess {
             player2.pieces_left.push_back(KING);
             player2.pieces_left.push_back(QUEEN);
 
-            chess_board
         }
         
         bool isValidMove() {
@@ -101,11 +99,13 @@ class Chess {
         
         // Removes the position form the given coordinates.
         void board_remove(cordinates_t corfrom) {
-            chess_board[corfrom.x][corfrom.y] = 'x';
+            // Add basic checks and only then remove.
+            chess_board[corfrom.x][corfrom.y] = NULL;
         }
         
         // Adds the piece at the given coordinate.
         void board_add(piece_t piece, cordinates_t corto) {
+            // See that there is nothing already present on this location. If so, then first remove and then place the new piece.
             chess_board[corto.x][corto.y] = piece.a;
         }
         
@@ -113,11 +113,12 @@ class Chess {
 };
 
 int main() {
-    Chess chess;
-    string player1, player2;
+    string player1, player2, color1, color2;
     cin >> player1;
+    cin >> color1;
     cin >> player2;
-    chess.board_init(player1, player2);
+    cin >> color2;
+    Chess c(player1, player2, color1, color2);
     return 0;
 }
 
