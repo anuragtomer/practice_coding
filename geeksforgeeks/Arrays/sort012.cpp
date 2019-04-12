@@ -43,7 +43,6 @@ int main() {
         cin >> num;
         vector <int> arr;
         arr.clear();
-        int count1 = 0, count2 = 0;
         while(num) {
             int val;
             cin >> val;
