@@ -80,7 +80,7 @@ int main() {
         }
         x = x + 2;
     }
-    if (sol.isBST(root)) cout << "true";
+    if (sol.isValidBST(root)) cout << "true";
     else cout << "false";
     return 0;
 }
