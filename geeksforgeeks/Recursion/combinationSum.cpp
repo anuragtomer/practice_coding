@@ -1,3 +1,8 @@
+/* Return set of all the subsets which sum up to a given no in the array.
+ *
+ *  Ex: Input - 10 1 2 7 6 1 5, sum = 8.
+ *  Output - (1 2 5) (1 7) (1 1 6) (2 6)
+ */
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,9 +20,11 @@ public:
             return;
          /* Including (idx)th element. */
         currVec.push_back(arr[idx]);
+         /* See if adding this element makes the sum. */
         combinationSumRecursive(arr, idx + 1, remainingSum - arr[idx], currVec, result);
          /* Excluding (idx)th element. */
         currVec.pop_back();
+         /* See if removing makes the sum. */
         combinationSumRecursive(arr, idx + 1, remainingSum, currVec, result);
     }
     set <vector <int> > combinationSum(vector <int> arr, int sum) {

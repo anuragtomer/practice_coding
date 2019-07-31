@@ -12,22 +12,23 @@ struct Node {
 };
 class Solution {
 public:
+    /*
+     * isSumTree : true, if left subtree sum + right subtree sum == root->val;
+     *             false, otherwise.
+     */
     bool isSumTreeRecursive(Node * root, int& sum) {
         if (root == NULL)
             return true;
         if (root->left == NULL && root->right == NULL) {
-            cout << "root->val: " << root->val << endl;
             sum = root->val;
             return true;
         }
         int sumL = 0, sumR = 0;
         if (isSumTreeRecursive(root->left, sumL) && isSumTreeRecursive(root->right, sumR)) {
             if (root->val == sumL + sumR) {
-                cout << "root->val: " << root->val << endl;
                 sum = root->val + sumL + sumR;
                 return true;
             }
-            cout << "root->val: " << root->val << " Left sum and Right sum didn't match root val " << sumL << " " << sumR << endl;;
             return false;
         }
         cout << "root->val: " << root->val << " Left sum and Right sum didn't match " << sumL << " " << sumR << endl;;
@@ -35,13 +36,6 @@ public:
     }
     bool isSumTree(Node * root) {
         int sum = 0;
-/*
- * if(isSumTreeRecursive(root, sum)) {
- *     if (root->val == sum)
- *         return true;
- *     return true;
- * }
- */
         return isSumTreeRecursive(root, sum);
     }
 };

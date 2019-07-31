@@ -5,6 +5,11 @@ using namespace std;
 
 class Solution {
 public:
+    /* one - print 'A'
+     * two - ctrl-A + ctrl-C
+     * three - ctrl-V
+     * Find max 'A' you can print with N keystrokes.
+     */
     int specialKeyboard(int screen, int buffer, int N) {
         if (N <= 0)
             return screen;

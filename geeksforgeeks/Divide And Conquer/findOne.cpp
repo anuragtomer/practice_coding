@@ -5,6 +5,7 @@ using namespace std;
 
 class Solution {
 public:
+     /* Find element which is not in pair (all pairs are adjacently placed.) */
     int findOne(vector <int> arr) {
         for (int i = 0; i < arr.size(); i++) {
             if (i + 1 < arr.size() && arr[i] == arr[i + 1]) {

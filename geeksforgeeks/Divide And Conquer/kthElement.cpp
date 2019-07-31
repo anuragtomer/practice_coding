@@ -5,6 +5,7 @@ using namespace std;
 
 class Solution {
 public:
+     /* Return kth element in 2 sorted arrays. */
     int kthElement(vector <int> arr1,
                    vector <int> arr2,
                    int index) {
@@ -20,6 +21,11 @@ public:
         int mid2 = (len2 - 1) / 2;
         if (mid1 + mid2 < index) {
             if (arr1[mid1] < arr2[mid2]) {
+                 /*
+                  * Delete the elements who are before the smaller of the
+                  * two mid elements and reduce the same from the index
+                  * we are trying to find.
+                  */
                 arr1.erase(arr1.begin(), arr1.begin() + mid1 + 1);
                 return kthElement(arr1, arr2, index - mid1 - 1);
             } else {
@@ -27,6 +33,12 @@ public:
                 return kthElement(arr1, arr2, index - mid2 - 1);
             }
         } else {
+            /*
+             * Delete the elements from the array whose mid is greater.
+             * Our index is smaller than sum of both halves. So our
+             * desired element won't be there in array section following
+             * bigger mid.
+             */
             if (arr1[mid1] > arr2[mid2]) {
                 arr1.erase(arr1.begin() + mid1, arr1.end());
                 return kthElement(arr1, arr2, index);
