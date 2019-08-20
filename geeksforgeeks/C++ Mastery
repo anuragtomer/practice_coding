@@ -1,0 +1,79 @@
+https://www.quora.com/Which-book-course-is-recommended-to-learn-c++-in-depth-and-clear-concepts
+
+If you want to become a truly legendary C++ programmer, you have to read the
+following books:
+
+A. The C++ Programming Language (4th edition - the one that covers C++11) - by
+ Bjarne Stroustrup, the creator of C++. This is an absolutely MUST-READ book.
+ This covers the basics and essentials needed to be a competent beginner. It
+ must be read cover to cover (it's voluminous, but the effort spent in reading
+ it would pay off big time).
+
+B. The C++ Standard Library: A Tutorial and Reference (2nd Edition, the one that
+ covers C++11) - by Nicolai M. Josuttis. This is a pretty comprehensive reference
+ for the STL.
+
+C. Once you have a grasp of the language and the standard template library, it's
+ time to move on to the Do's and Don'ts, and the best books in this category are
+ the "Effective" series books from Scott Meyers:
+- Effective C++: 55 Specific Ways to Improve Your Programs and Designs
+- More Effective C++: 35 New Ways to Improve Your Programs and Designs
+- Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template
+  Library
+- Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14
+
+After the above books have been read, you would be ready to look at templates in
+ details, and there is just one book that covers everything: C++ Templates: The
+ Complete Guide - by David Vandevoorde and Nicolai M. Josuttis. Unfortunately
+ this book covers only C++98/03 but the wealth of information in it is still
+ invaluable. I hear that a second edition covering C++11/14 is in the works and
+ shall be available soon.
+
+Once you finish reading the above, you would be all set to master design
+ principles. The two books to read for design are:
+- Design Patterns: Elements of Reusable Object-Oriented Software - by Erich
+  Gamma, Richard Helm, Ralph Johnson, John Vlissides - this one is a classic, and
+  almost a mandatory reading for any OO-design work.
+- Modern C++ Design: Generic Programming and Design Patterns Applied - by Andrei
+  Alexandrescu. This book doesn't cover C++11, but is still pretty good.
+
+After reading all the above, you can look at the internals of C++: Inside the
+C++ Object Model - by Stanley B. Lippman. This book talks about how C++ objects
+are laid out in memory and things like virtual tables.
+
+A thorough reading of the above books will make you a truly world-class C++
+programmer. It's a long road, but it's a journey worth undertaking.
+
+
+
+
+-------------------------------------------------------------------------------
+https://www.quora.com/Which-book-should-I-read-to-learn-C++-in-depth:
+
+C++ Primer * (Stanley Lippman, Josée Lajoie, and Barbara E. Moo) (updated for
+C++11) Coming at 1k pages, this is a very thorough introduction into C++ that
+covers just about everything in the language in a very accessible format and in
+great detail. The fifth edition (released August 16, 2012) covers C++11.
+
+A Tour of C++ (Bjarne Stroustrup) (EBOOK) The “tour” is a quick (about 180 pages
+and 14 chapters) tutorial overview of all of standard C++ (language and standard
+library, and using C++11) at a moderately high level for people who already know
+C++ or at least are experienced programmers. This book is an extended version of
+the material that constitutes Chapters 2-5 of The C++ Programming Language, 4th
+edition.
+
+Accelerated C++ (Andrew Koenig and Barbara Moo) This basically covers the same
+ground as the C++ Primer, but does so on a fourth of its space. This is largely
+because it does not attempt to be an introduction to programming, but an
+introduction to C++ for people who've previously programmed in some other
+language. It has a steeper learning curve, but, for those who can cope with
+this, it is a very compact introduction into the language. (Historically, it
+ broke new ground by being the first beginner's book to use a modern approach
+ at teaching the language.) [Review]
+
+Thinking in C++ (Bruce Eckel) Two volumes; is a tutorial style free set of
+intro level books. Downloads: vol 1, vol 2. Unfortunately they’re marred by
+a number of trivial errors (e.g. maintaining that temporaries are automatically
+const), with no official errata list. A partial 3rdparty errata list is
+available at (http://www.computersciencelab.co...), but it’s apparently not
+ maintained.
