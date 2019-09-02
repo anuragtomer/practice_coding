@@ -33,6 +33,7 @@ List * insert(int elem, List *head) {
                 }
             case 2:
                 {
+                    // Not handling corner cases.
                     int n {};
                     cout << "Enter position: ";
                     cin >> n; 
@@ -62,6 +63,15 @@ void printList(List *head) {
         head = head->next;
     }
     cout << "nullptr\n";
+}
+
+void deleteList(List *head) {
+    List *temp;
+    while(head != nullptr) {
+        temp = head;
+        head = head->next;
+        delete temp;
+    }
 }
 
 int main() {
@@ -94,5 +104,6 @@ int main() {
         cout << "Do you want to continue? (0/1): ";
         cin >> conti;
     } while(conti == 1);
+    deleteList(head);
     return 0;
 }
