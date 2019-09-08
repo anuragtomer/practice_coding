@@ -3,3 +3,7 @@
 *.swp
 *.gch
 *.out
+*.json
+*.py
+*.ipynb
+*.vscode
