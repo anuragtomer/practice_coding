@@ -1,11 +1,11 @@
 Codes for practicing concepts from The C++ Programming Language by Bjarne Stroustrup  
 
   
-NOTE: Some .cpp's are compilable, some not.
-NOTE: The files are to give idea about what/how of the concept. Each file is not a complete, independently runnable code.  
+<b>NOTE</b>: Some .cpp's are compilable, some not.  
+<b>NOTE</b>: The files are to give idea about what/how of the concept. Each file is not a complete, independently runnable code.  
   
 
-Chapter 23 : Templates  
+<b>Chapter 23 : Templates</b>  
 [ex23-1.cpp](ex23-1.cpp): An attempt to create template String class. (Uncompiled code)  
 [ex23-2.cpp](ex23-2.cpp): Understanding templates.  
 [ex23-3.cpp](ex23-3.cpp): Giving def of functions outside template functions.  
@@ -22,5 +22,5 @@ Chapter 23 : Templates
 [ex23-14.cpp](ex23-14.cpp): Template aliases.  
   
   
-Chapter 24 : Generic Programming  
+<b>Chapter 24 : Generic Programming</b>  
 [ex24-1.cpp](ex24-1.cpp): 
