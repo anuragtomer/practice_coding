@@ -7,3 +7,5 @@ NOTE:
 [graphtest](graphtest.cpp): Basic implementation of graph in C++ using adjacency matrix. Requires [this](graph.hpp)  
 [DFS](DFS.cpp): DFS traversal of graph.  
 [BFS](BFS.cpp): BFS traversal of graph.  
+[Topological Sort BFS](topologicalBFS.cpp): Topological sort of directed graph through BFS.  
+[Topological Sort DFS](topologicalDFS.cpp): Topological sort of directed graph through DFS.  

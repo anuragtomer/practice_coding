@@ -7,7 +7,7 @@
 using namespace std;
 
 class Graph{
-/* Bidirectional Graph implementation using adjacency graph. */
+/* Bidirectional Graph implementation using adjacency list. */
 
 private:    
     int V;
@@ -118,7 +118,7 @@ int main() {
     // Lets print to be sure if we entered the intended graph.
     graph->printGraph();
     
-    // Do the DFS traversal.
+    // Do the BFS traversal.
     vector<bool> visited(V, false);
     BFS(graph, visited);
 

@@ -2,11 +2,12 @@
 #include<vector>
 #include<list>
 #include<cassert>
+#include<queue>
 
 using namespace std;
 
 class Graph{
-/* Bidirectional Graph implementation using adjacency list. */
+/* Directional Graph implementation using adjacency list. */
 
 private:    
     int V;
@@ -18,11 +19,9 @@ public:
     }
     
     void addLink(int u, int v) {
-        /* Its a bidirectional graph. An edge means we should add to both nodes' adjacency list. */
         assert(u >= 0 && u < V &&
                v >= 0 && v < V);
         adjList[u].push_back(v);
-        adjList[v].push_back(u);
     }
 
     void deleteLink(int u, int v) {
@@ -34,21 +33,12 @@ public:
                 break;
             }
         }
-        /* Again, since it is a bidirectional graph, removing an edge means removing from both 
-         * nodes.
-         */
-        for (it = adjList[v].begin(); it != adjList[v].end(); it++) {
-            if (*it == u) {
-                adjList[v].erase(it);
-                break;
-            }
-        }
     }
 
     void printGraph() {
         list<int>::iterator it;
         for (int i = 0; i < V; i++) {
-            cout << "Neighbors of " << i << ": ";
+            cout << "Link from " << i << " : ";
             for (it = adjList[i].begin(); it != adjList[i].end(); it++) {
                 cout << *it << "->";
             }
@@ -56,11 +46,11 @@ public:
         }
     }
 
-    /** A friend function DFS to do DFS traversal. friend because it would need access to no of 
-     *  vertices, and adjList.
+    /* A friend function topological to do topological traversal. 'friend' because it would need 
+     * access to no of vertices in graph and their adjList.
      */
-    friend void DFS(Graph *, vector<bool> &);
-    friend void DFSTraversal(Graph *, int, vector<bool> &);
+    friend void topologicalSort(const Graph *);
+    friend void adjustInflow(const Graph *, const int, queue<int> &, vector<int> &);
 
     ~Graph() {
         /* We allocated using new. We should delete. */
@@ -68,23 +58,46 @@ public:
     }
 };
 
-/* Core function for traversal. Traverses only neighbors, connected components. */
-void DFSTraversal(Graph * graph, int u, vector<bool> & visited) {
-    visited[u] = true; // Mark this node visited.
-    cout << "Visiting: " << u << endl;
-    for(list<int>::iterator it = graph->adjList[u].begin(); it!= graph->adjList[u].end(); it++) {
-        if (visited[*it] == false) {
-            DFSTraversal(graph, *it, visited);
+void adjustInflow(const Graph *graph, const int curr, queue<int> &queue, vector<int> &inflow) {
+    list<int>::iterator it;
+    for (it = graph->adjList[curr].begin();
+         it != graph->adjList[curr].end();
+         it++) {
+        inflow[*it]--;
+        if (inflow[*it] == 0) {
+            queue.push(*it);
         }
     }
 }
 
-// DFS to traverse for each vertex. Handles even disconnected graph.
-void DFS(Graph * graph, vector<bool> &visited) {
+void topologicalSort(const Graph *graph) {
+    vector<int> inflow(graph->V, 0);
+    queue<int> queue;
+
+    // Calculate inflows of each node.
     for (int i = 0; i < graph->V; i++) {
-        if (visited[i] == false)
-            DFSTraversal(graph, i, visited);
+        list<int>::iterator it;
+        for (it = graph->adjList[i].begin();
+             it != graph->adjList[i].end();
+             it++) {
+            inflow[*it]++;
+        }
     }
+    
+    // Put all the elements in the queue which have no inflow. They can basically get done.
+    for (int i= 0; i < graph->V; i++) {
+        if (inflow[i] == 0) {
+            queue.push(i);
+        }
+    }
+
+    while(queue.empty() == false) {
+        int curr = queue.front();
+        queue.pop();
+        cout << curr << " ";
+        adjustInflow(graph, curr, queue, inflow);
+    }
+
 }
 
 int main() {
@@ -104,13 +117,12 @@ int main() {
         graph->addLink(u, v);
     }
 
-    // Lets print to be sure if we entered the intended graph.
+    // Lets' print to be sure if we entered the intended graph.
     graph->printGraph();
     
-    // Do the DFS traversal.
-    vector<bool> visited(V, false);
-    DFS(graph, visited);
-
+    // Prerequisite: Graph must be acyclical.
+    topologicalSort(graph);
+    
     delete graph;
     return 0;
 }
