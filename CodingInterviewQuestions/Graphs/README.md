@@ -10,5 +10,8 @@ NOTE:
 [Topological Sort BFS](topologicalBFS.cpp): Topological sort of directed graph through BFS.  
 [Topological Sort DFS](topologicalDFS.cpp): Topological sort of directed graph through DFS.  
 [Shortest Path](shortestPath.cpp): Shortest Path in Directed Unweighted Graph.  
-[Shortest Path](dijkshtra.cpp): Shortest Path in Directed Weighted Graph (Dijkshtra).  
-[Shortest Path](dijkshtra.cpp): Dijkshtra using min_heaps.  
+[Shortest Path](dijkstra.cpp): Shortest Path in Directed Weighted Graph (Dijkstra).  
+[Shortest Path](dijkstraHeap.cpp): Dijkstra using min_heaps.  
+[Shortest Path](bellmanFord.cpp): Shortest path in Directed Weighted Graph with negative edges, BellmanFord's Algo.  
+[Minimum Spanning Tree](prim.cpp): MST using prim's Algorithm(uses min_heap).  
+[Minimum Spanning Tree](kruskal.cpp): MST using kruskal's Algorithm(uses min_heap, not UNION-FIND).  
