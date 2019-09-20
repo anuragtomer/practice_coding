@@ -9,3 +9,5 @@ NOTE:
 [BFS](BFS.cpp): BFS traversal of graph.  
 [Topological Sort BFS](topologicalBFS.cpp): Topological sort of directed graph through BFS.  
 [Topological Sort DFS](topologicalDFS.cpp): Topological sort of directed graph through DFS.  
+[Shortest Path](shortestPath.cpp): Shortest Path in Directed Unweighted Graph.  
+[Shortest Path](dijkshtra.cpp): Shortest Path in Directed Weighted Graph (Dijkshtra).  

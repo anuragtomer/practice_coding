@@ -26,7 +26,7 @@ public:
 
     void deleteLink(int u, int v) {
         list<int>::iterator it;
-        /* There is no find function in List. So writing one using iterator it. */
+        /* There is no 'find' function in List. So writing one using iterator it. */
         for (it = adjList[u].begin(); it != adjList[u].end(); it++) {
             if (*it == v) {
                 adjList[u].erase(it);
@@ -46,58 +46,36 @@ public:
         }
     }
 
-    /* A friend function topological to do topological traversal. 'friend' because it would need 
-     * access to no of vertices in graph and their adjList.
-     */
-    friend void topologicalSort(const Graph *);
-    friend void adjustInflow(const Graph *, const int, queue<int> &, vector<int> &);
-
+    friend vector<vector<int> > shortestPath(Graph *, int );
     ~Graph() {
         /* We allocated using new. We should delete. */
         delete [] adjList;
     }
 };
 
-void adjustInflow(const Graph *graph, const int curr, queue<int> &queue, vector<int> &inflow) {
-    list<int>::iterator it;
-    for (it = graph->adjList[curr].begin();
-         it != graph->adjList[curr].end();
-         it++) {
-        inflow[*it]--;
-        if (inflow[*it] == 0) {
-            queue.push(*it);
-        }
-    }
-}
-
-void topologicalSort(const Graph *graph) {
-    vector<int> inflow(graph->V, 0);
-    queue<int> queue;
-
-    // Calculate inflows of each node.
-    for (int i = 0; i < graph->V; i++) {
-        list<int>::iterator it;
-        for (it = graph->adjList[i].begin();
-             it != graph->adjList[i].end();
-             it++) {
-            inflow[*it]++;
-        }
-    }
-    
-    // Put all the elements in the queue which have no inflow. They can basically get done.
-    for (int i= 0; i < graph->V; i++) {
-        if (inflow[i] == 0) {
-            queue.push(i);
-        }
-    }
-
+vector<vector<int> > shortestPath(Graph *graph, int ver) {
+    vector<vector<int>> path(graph->V, vector<int>(2, -1));
+    queue<int> queue; // Keeps track of nodes we saw but not yet visited.
+    queue.push(ver);
+    // Starting vertex is at 0 hops.
+    path[ver][0] = 0;
+    path[ver][1] = ver;
     while(queue.empty() == false) {
         int curr = queue.front();
         queue.pop();
-        cout << curr << " ";
-        adjustInflow(graph, curr, queue, inflow);
+        list<int>::iterator it;
+        for(it = graph->adjList[curr].begin(); 
+            it != graph->adjList[curr].end();
+            it++) {
+            if (path[*it][0] == -1) {
+                // We have not seen this before. Lets update its path and add it to queue.
+                path[*it][0] = path[curr][0] + 1;
+                path[*it][1] = curr;
+                queue.push(*it);
+            }
+        }
     }
-
+    return path;
 }
 
 int main() {
@@ -119,9 +97,20 @@ int main() {
 
     // Lets' print to be sure if we entered the intended graph.
     graph->printGraph();
-    
-    // Prerequisite: Graph must be acyclical.
-    topologicalSort(graph);
+
+    cout << "Enter source vertex: ";
+    int ver;
+    cin >> ver;
+    /* Vector shortest keeps 2 items for each vertex: 
+     * - min hops to that node
+     * - Previous node via which we came to this node making the shortest hop.
+     */
+    vector<vector<int>> shortest = shortestPath(graph, ver);
+
+    cout << "Shortest Path vector:\n";
+    for(auto temp: shortest) {
+        cout << "Hops: "<< temp[0] << ", via: " << temp[1] << endl;
+    }
     
     delete graph;
     return 0;

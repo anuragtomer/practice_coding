@@ -93,7 +93,7 @@ int main() {
     cout << "No of nodes: ";
     cin >> V;
     Graph *graph = new Graph(V);
-    cout << "No of vertices: ";
+    cout << "No of edges: ";
     cin >> E;
     for (int i = 0; i < E; i++) {
         int u, v;
