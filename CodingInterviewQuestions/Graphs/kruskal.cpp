@@ -28,7 +28,8 @@ public:
     
     void addLink(int u, int v, int cost) {
         assert(u >= 0 && u < V &&
-               v >= 0 && v < V);        
+               v >= 0 && v < V);
+        // Add bidirectional links.
         adjList[u].push_back(make_pair(v, cost));
         adjList[v].push_back(make_pair(u, cost));
     }
@@ -115,20 +116,25 @@ int kruskal(const Graph *graph, vector<iPair> &distance) {
             }
         }
     }
+
+    // By now, we have made min heap. Lets find MST now.
     int added = 0;
     int cost = 0;
-    vector<int> parent(graph->V);
+    vector<int> parent(graph->V); // This saves the smallest numbered parent.
     for(int i = 0; i < graph->V; i++)
-        parent[i] = i;
-    
-    while(heap.empty() == false) {
+        parent[i] = i; // Initialized to itself.
+
+    while(added != graph->V-1) { // There can be max of V-1 edges in a tree of V nodes.
         triplet t = heap.top();
         heap.pop();
         int parentu = getParent(t.u, parent);
         int parentv = getParent(t.v, parent);
         if (parentu != parentv) {
+            added++;
+            // Both nodes are part of different disconnected components.
             cost += t.cost;
             distance.push_back(make_pair(t.u, t.v));
+            // The following connects the 2 disconnected components.
             if (parentu < parentv)
                 parent[parentv] = parentu;
             else
