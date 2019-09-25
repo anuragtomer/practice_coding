@@ -6,4 +6,5 @@
 [Find second largest element in an array](secondLargest.cpp)  
 [Find majority element in an array(whose occurance is more than n/2)](majority.cpp)  
 [Find local minima in an array](localMinima.cpp)  
-[Find element in sorted 2 D matrix](searchInSortedMatrix.cpp)  
+[Find element in sorted 2-D matrix](searchInSortedMatrix.cpp)  
+[Find local minima in 2-D matrix](localMinima2D.cpp)  
