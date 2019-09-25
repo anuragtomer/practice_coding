@@ -8,3 +8,5 @@
 [Find local minima in an array](localMinima.cpp)  
 [Find element in sorted 2-D matrix](searchInSortedMatrix.cpp)  
 [Find local minima in 2-D matrix](localMinima2D.cpp)  
+[Segregate odd and even numbers](separateOddEven.cpp)  
+[Dutch flag Problem - 3 colors](dutchFlag3Colors.cpp)  
