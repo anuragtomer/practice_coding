@@ -10,3 +10,4 @@
 [Find local minima in 2-D matrix](localMinima2D.cpp)  
 [Segregate odd and even numbers](separateOddEven.cpp)  
 [Dutch flag Problem - 3 colors](dutchFlag3Colors.cpp)  
+[Max diff in array(larger element followed after smaller)][maxdiff.cpp]  
