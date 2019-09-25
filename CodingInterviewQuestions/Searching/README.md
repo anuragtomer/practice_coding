@@ -11,3 +11,4 @@
 [Segregate odd and even numbers](separateOddEven.cpp)  
 [Dutch flag Problem - 3 colors](dutchFlag3Colors.cpp)  
 [Max diff in array(larger element followed after smaller)][maxdiff.cpp]  
+[No of trailing zeros in n!](noOfTrailingZeros.cpp)  
