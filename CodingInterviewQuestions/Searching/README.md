@@ -13,3 +13,4 @@
 [Max diff in array(larger element followed after smaller)][maxdiff.cpp]  
 [No of trailing zeros in n!](noOfTrailingZeros.cpp)  
 [Shuffle array in some pattern](shuffle.cpp)  
+[Find max(j-i), for all j>i, such that A[j] > A[i]](maxi_j.cpp)  
