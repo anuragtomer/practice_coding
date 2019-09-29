@@ -4,7 +4,10 @@
  * Known Bugs:
  * - deletes whole list if multiple insertions have same key but different value, since
  *   they all get mapped to same bucket.
+ * - Operator overloading not working. Commented.
+ * - Memory might be leaking from keyvallist. Commented code.
  **/
+
 #include <iostream>
 #include <cassert>
 
@@ -16,6 +19,7 @@ struct keyVal{
     keyVal * next;
     keyVal() { keyVal(0, 0); }
     keyVal(int k, int v): key{k}, val{v}, next{nullptr} {};
+    // operator overloading not working as of now.
     keyVal& operator++() {
         cout << "Correctly using ++\n";
         *this = *this->next;
