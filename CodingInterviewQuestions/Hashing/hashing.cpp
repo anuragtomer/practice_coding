@@ -1,11 +1,16 @@
 /* Implements basic hashing.
  *
  * Note: not fully tested code.
+ * 
  * Known Bugs:
  * - deletes whole list if multiple insertions have same key but different value, since
  *   they all get mapped to same bucket.
  * - Operator overloading not working. Commented.
  * - Memory might be leaking from keyvallist. Commented code.
+ * 
+ * Work pending:
+ * - Fix known bugs.
+ * - Would want hide (->next) from everywhere. Should make ++ work.
  **/
 
 #include <iostream>
@@ -94,7 +99,8 @@ void myhash::rehash() {
         while(temphead) {
             int newIndex = hash(temphead->key);
             newTable[newIndex].insert(temphead->key, temphead->val);
-            ++temphead;
+            // ++temphead; Doesn't work. 
+            temphead = temphead ->next;
         }
         hashTable[i].~keyValList();
     }
