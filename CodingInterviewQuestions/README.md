@@ -60,3 +60,7 @@ NOTE:
 <b> Trees </b>
 
 [Create tree from Preorder traversal](Trees/createTreeFromPreorder.cpp)  
+
+<b> Hashing </b>
+
+[Implement hashing](Hashing/hashing.cpp)
