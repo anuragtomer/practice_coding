@@ -23,8 +23,8 @@ NOTE:
 <b> Greedy </b>
 
 [Huffman Encoding](Greedy/huffmancoding.cpp)  
+[Partition Interval in minimum sets](Greedy/intervalPartitioning.cpp): A variant of interval scheduling.  
 [Schedule Intervals such that max intervals are scheduled](Greedy/intervalScheduling.cpp)  
-[Partition Interval in minimum sets](Greedy/minPlatform.cpp): A variant of interval scheduling.  
 
 
 <b> Hashing </b>
