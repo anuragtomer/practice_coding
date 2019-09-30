@@ -22,6 +22,7 @@ NOTE:
 
 <b> Greedy </b>
 
+[Fractional knapsack problem](Greedy/fractionalKnapsack.cpp)    
 [Huffman Encoding](Greedy/huffmancoding.cpp)  
 [Partition Interval in minimum sets](Greedy/intervalPartitioning.cpp): A variant of interval scheduling.  
 [Schedule Intervals such that max intervals are scheduled](Greedy/intervalScheduling.cpp)  
