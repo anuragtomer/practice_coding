@@ -4,7 +4,7 @@ NOTE:
 &nbsp;&nbsp;&nbsp;&nbsp;- Implemented in C++.  
 &nbsp;&nbsp;&nbsp;&nbsp;- Files will be complete in themselves. Will not need any custom .h/.hpp files.  
 
-<b> GRAPH QUESTIONS </b>  
+<b> Graph Questions </b>  
 
 [Shortest Path](Graphs/bellmanFord.cpp): Shortest path in Directed Weighted Graph with negative edges, BellmanFord's Algo.  
 [BFS](Graphs/BFS.cpp): BFS traversal of graph.  
@@ -33,23 +33,23 @@ NOTE:
 [Implement hashing](Hashing/hashing.cpp)  
 
 
-<b> LINKED LISTS </b>
+<b> Linked Lists </b>
 
 [Linked list implementation](LinkedList/linkedlist.cpp)  
-[Reversal of Linked list](LinkdedList/linkedlist.cpp)  
+[Reversal of Linked list](LinkedList/linkedlistReversal.cpp)  
 
 
 <b>Searching Problems</b>
 
 [Dutch flag Problem - 3 colors](Searching/dutchFlag3Colors.cpp)  
 [Find in sorted but rotated array](Searching/findInSortedRotated.cpp)  
-[Find first occurance in a sorted array](Searching/findOccurance.cpp)  
+[Find first occurance in a sorted array](Searching/firstOccurance.cpp)  
 [Find last occurance in a sorted array](Searching/lastOccurance.cpp)  
 [Find local minima in an array](Searching/localMinima.cpp)  
 [Find local minima in 2-D matrix](Searching/localMinima2D.cpp)  
 [Find majority element in an array(whose occurance is more than n/2)](Searching/majority.cpp)  
 [Max diff in array(larger element followed after smaller)](Searching/maxdiff.cpp)  
-[Find max(j-i), for all j>i, such that A[j] > A[i]](Searching/maxi_j.cpp)  
+[Find max(j-i)](Searching/maxj_i.cpp): Find max(j-i), for all j>i, such that A[j] > A[i]   
 [No of trailing zeros in n!](Searching/noOfTrailingZeros.cpp)  
 [Find element in sorted 2-D matrix](Searching/searchInSortedMatrix.cpp)  
 [Find second largest element in an array](Searching/secondLargest.cpp)  
@@ -57,7 +57,7 @@ NOTE:
 [Shuffle array in some pattern](Searching/shuffle.cpp)  
 
 
-<b> SELECTION ALGORITHMS </b>
+<b> Selection Algorithms </b>
 
 [Find kth smallest element from 2 sorted arrays.](SelectionAlgorithms/kthsmallest.cpp)  
 
@@ -73,6 +73,12 @@ NOTE:
 [Stack which supports O(1) time for extracting min](Stacks/minStack.cpp)  
 [Find a span in an array](Stacks/span.cpp)
 [Implement stack using lists](Stacks/stackUsingList.cpp)  
+
+<b> Strings </b>
+
+[Pattern searching in string(brute Force method)](String/bruteForceStringMatching.cpp)  
+[Pattern searching in string using Knuth-Morris-Pratt Algorithm](String/KMP.cpp)  
+[Pattern searching in string using Rabin Karp Algorithm](String/rabinkarp.cpp)  
 
 <b> Trees </b>
 
