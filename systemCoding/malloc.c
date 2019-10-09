@@ -1,3 +1,6 @@
+// There is a problem somewhere in this code. Need to debug. Could not connect gdb in previous
+// try.
+
 #include<assert.h>
 #include <string.h>
 #include<unistd.h>
@@ -18,8 +21,9 @@ void *global_head = NULL;
 void * malloc(size_t sz);
 /* void * realloc(void * ptr, size_t sz);
 void * calloc(size_t sz);
+*/
 void free(void * ptr);
- */
+
 /* Internal functions to see if existing memory can be used. */
 void * get_old_space(malloc_block **, size_t);
 
