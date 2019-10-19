@@ -56,7 +56,7 @@ int main() {
     root->left->left->left = new Node(3);
     root->left->left->right = new Node(7);
     root->left->right->right = new Node(17);
-    Node * common = ancestor(root, 3, 21);
+    Node * common = ancestor(root, 30, 10);
     if (common != nullptr)
         cout << common->val;
     else 
