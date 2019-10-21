@@ -1,26 +1,9 @@
-#include <map>
-#include <set>
-#include <list>
-#include <cmath>
-#include <ctime>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <cstdio>
-#include <limits>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <fstream>
-#include <numeric>
-#include <sstream>
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
+#include <vector>
 #include <iomanip>
+
 using namespace std;
 
 bool compar(int i, int j) {
@@ -44,7 +27,6 @@ int main(){
             // There are two elements. Push higher number to min_heap and
             // smaller number to max_heap
             if (a[0] < a[1]) {
-
                 max_heap.push_back(a[0]); 
                 make_heap(max_heap.begin(), max_heap.end());
                 push_heap(max_heap.begin(), max_heap.end());
