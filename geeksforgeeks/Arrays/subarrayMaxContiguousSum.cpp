@@ -40,14 +40,9 @@ int main(){
         T--;
         int sz;
         cin >> sz;
-        vector <int> arr;
-        arr.clear();
-        while(sz) {
-            int val;
-            cin >> val;
-            arr.push_back(val);
-            sz--;
-        }
+        vector <int> arr(sz);
+        for (int i = 0; i < sz; ++i)
+            cin >> arr[i];
         cout << sol.subarrayMaxContiguousSum(arr) << endl;
     }
     return 0;
