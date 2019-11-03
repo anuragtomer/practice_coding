@@ -47,7 +47,6 @@ NOTE:
 [Find last occurance in a sorted array](Searching/lastOccurance.cpp)  
 [Find local minima in an array](Searching/localMinima.cpp)  
 [Find local minima in 2-D matrix](Searching/localMinima2D.cpp)  
-[Find majority element in an array(whose occurance is more than n/2)](Searching/majority.cpp)  
 [Max diff in array(larger element followed after smaller)](Searching/maxdiff.cpp)  
 [Find max(j-i)](Searching/maxj_i.cpp): Find max(j-i), for all j>i, such that A[j] > A[i]   
 [No of trailing zeros in n!](Searching/noOfTrailingZeros.cpp)  
