@@ -8,6 +8,7 @@
  */
 
 #include <iostream>
+#include <algorithm>
 #include <fstream>
 #include <vector>
 #include <unordered_map>
@@ -51,7 +52,7 @@ bool comp(lineinfile a, lineinfile b) {
 
 struct queuesum{
     queue<pair<int, int>> q;
-    int sum;
+    int clickSum;
 };
 
 
@@ -66,7 +67,7 @@ vector<string> NclicksinDdays(vector<lineinfile> &data, int N, int D) {
             // This is a new url. Need to add to hash table and update queue and current sum.
             queuesum qs;
             qs.q.push({a.date, a.clicks});
-            qs.sum = a.clicks;
+            qs.clickSum = a.clicks;
             hash[a.url] = qs; 
         } else {
             /*
@@ -74,19 +75,30 @@ vector<string> NclicksinDdays(vector<lineinfile> &data, int N, int D) {
              * is more than the window, remove the oldest element and update the sum accordingly.
              */
             hash[a.url].q.push({a.date, a.clicks});
-            hash[a.url].sum += a.clicks;
-            while (abs(hash[a.url].q.front().first - a.date) > N) { // N is the window of consecutive days. Check if we have crossed the window. If so, adjust the sum and queue.
+            hash[a.url].clickSum += a.clicks;
+            while (abs(hash[a.url].q.front().first - a.date) > N) {
+                /* 
+                 * N is the window of consecutive days. Check if we have crossed the window. If so, 
+                 * adjust the sum and queue.
+                 */
                 pair<int, int> date_clicks = hash[a.url].q.front();
                 hash[a.url].q.pop();
-                hash[a.url].sum -= date_clicks.second;
+                hash[a.url].clickSum -= date_clicks.second;
+                // We don't have to worry about deleting the complete queue because we just inserted
+                // an entry in the queue which can not be older than N days, unless N is <= 0.
             }
         }
-        if (hash[a.url].sum >= D) { // D is the no of clicks. We have a url which has been hit D times in an N day window.
-            tempresult.insert(a.url); // Add it to the set. Set because we don't want to add same url multiple times.
+        if (hash[a.url].clickSum >= D) {
+            /*
+             * D is the no of clicks. We have a url which has been hit D times in an N day window.
+             **/
+            tempresult.insert(a.url); // Add it to the set. Set because we don't want to add same 
+                                      // url multiple times.
         }
     }
     for (auto a: tempresult) {
-        result.push_back(a); // Caller needs the result as vector of strings. Convert the output from set to vector of strings.
+        result.push_back(a); // Caller needs the result as vector of strings. Convert the output 
+                             // from set to vector of strings.
     }
     return result;
 }
