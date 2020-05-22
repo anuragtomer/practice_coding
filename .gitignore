@@ -10,4 +10,4 @@
 *.in
 *.exp
 .DS_Store
-a.out.dSYM
+*.dSYM
